@@ -54,7 +54,7 @@ Once at the Profile Page, a User can update their info and profile pic and see a
 
 === | **Elevator Pitch** | ===
 
-While taking the Software Engineering Immersive Cohort through General Asssembly, I was unemployed so I could focus on the cohort. As a way to save money on my food expenses, I would regularaly eat Instant Ramen for lunch and/or dinner. But after a week or so, the base flavor of the noodles got boring and mildly unappealing. So as a way to keep my meals interesting I would add different spices, vegetables, and/or proteins. This really made the instant noodles much more enjoyable for me, considering how often I was eating them. So I created an app for others to share their favorite recipes for instant noodles with each other and explore and discover how others like to enjoy their noodles!
+While taking the Software Engineering Immersive Cohort through General Asssembly, I was unemployed so I could focus on the cohort. As a way to save money on my expenses, I would regularly eat Instant Ramen for lunch and/or dinner. But after a week or so, the base flavor of the noodles got boring and mildly unappealing. So as a way of keeping my meals interesting and enjoyable I would add different spices, vegetables, and/or proteins. This really made the Instant Noodles much more enjoyable for me, considering how often I was eating them. So I created Noods, an app for others to share their favorite recipes for Instant Noodles with each other and explore and discover how others like to enjoy their noodles! 
 
 === | **Technologies Used** | ===
 
