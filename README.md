@@ -1,3 +1,8 @@
+=== | **Welcome to Noods!** | ===
+Your one-stop-shop for all things Instant Noodle related.
+
+__Send your friends some Noods!__
+
 === | **Wireframe** | ===
 <!-- Image linking? -->
 <!-- <img src="name.jpg" /> -->
