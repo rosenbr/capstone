@@ -10,7 +10,7 @@
   "name": "noods_app",
   "description": "=== | **Welcome to Noods!** | === Your one-stop-shop for all things Instant Noodle related.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
