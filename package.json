@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.12",
+    "nodemon": "^2.0.7"
+  },
+  "name": "noods_app",
+  "description": "=== | **Welcome to Noods!** | === Your one-stop-shop for all things Instant Noodle related.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "open http://localhost:3000 && nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/rosenbr73/capstone.git"
+  },
+  "author": "Richard Rosenberg",
+  "license": "ISC"
+}
