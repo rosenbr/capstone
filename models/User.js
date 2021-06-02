@@ -17,8 +17,18 @@ const userSchema = new mongoose.Schema(
             required: [true, "Please Enter a Password."],
             unique: true,
         },
+        recipe: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Recipe"
+        },
+        comment: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
     },
-    {timestamps: true}
+    {
+        timestamps: true
+    }
 );
 
 const User = mongoose.model("User", userSchema);
