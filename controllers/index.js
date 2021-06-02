@@ -1,3 +1,3 @@
-module.express = {
+module.exports = {
     recipes: require("./recipes")
 }

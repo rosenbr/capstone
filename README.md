@@ -8,15 +8,15 @@ __Send your friends some Noods!__
 <!-- Image linking? -->
 <!-- <img src="name.jpg" /> -->
 Landing Page:
-![Landing Page Wirefreame](/README_images/LandingPage.png)
+![Landing Page Wirefreame](../public/README_images/LandingPage.png)
 Home Page:
-![Home Page Wirefreame](/README_images/HomePage.png)
+![Home Page Wirefreame](../public/README_images/HomePage.png)
 Browse page:
-![Browse Page Wirefreame](/README_images/BrowsePage.png)
+![Browse Page Wirefreame](../public/README_images/BrowsePage.png)
 Catagory Page:
-![Catagory Page Wirefreame](/README_images/CatagoryPage.png)
+![Catagory Page Wirefreame](../public/README_images/CatagoryPage.png)
 Recipe Page:
-![Recipe Page Wirefreame](/README_images/RecipePage.png)
+![Recipe Page Wirefreame](../public/README_images/RecipePage.png)
 Profile Page:
 ![Profile Page Wirefreame](/README_images/ProfilePage.png)
 
@@ -48,7 +48,7 @@ Once at the Profile Page, a User can update their info and profile pic and see a
 
 === | **ERD** | ===
 
-![ERD](/images/README_images/ERD.png)
+![ERD](../public/README_images/ERD.png)
 
 === | **Link** | ===
 
