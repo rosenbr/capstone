@@ -2,9 +2,9 @@ const express = require("express");
 const methodOverride = require("method-override");
 const session = require("express-session");
 
-
 // Internal Modules
 const controllers = require("./controllers");
+const { nextTick } = require("node:process");
 
 // Instanced Modules
 const app = express();
@@ -13,7 +13,39 @@ const app = express();
 app.set("view engine", "ejs");
 
 // Middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+// app.use(express.static(_dirname + "/public"));
+
+// app.use(
+//     session({
+//         store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+//         secret: process.env.SESSION_SECRET,
+//         resave: false,
+//         saveUninitialized: false,
+//         cookie: {
+//             maxAge: 1000 * 60 * 60 * 24 * 7 * 2,
+//         },
+//     })
+// );
+
+// app.use(function(req, res, next) {
+//     console.log(`${req.method} - ${req.url}`);
+//     console.log(req.session);
+//     next();
+// });
+
+// app.use(function(req, res, next) {
+//     app.locals.user = req.sessions.currentUser;
+//     next();
+// });
+
+// const authRequired = function(req, res, next) {
+//     if(req.session.currentUser) {
+//         return next();
+//     }
+//     return res.redirect("/login");
+// };
 
 
 // Routes
@@ -47,17 +79,22 @@ app.get("/recipe", function(req, res){
     res.render("../views/recipe");
 });
 
-// Register
-app.get("/register", function(req, res) {
-    res.render("../views/auth/register");
-});
+// Controllers
 
-// Login
-app.get("/login", function(req, res) {
-    res.render("../views/auth/login");
-});
+// Login/Register
+app.use("/", controllers.auth);
 
+// Users
+// TODO add "authRequired" in the middle
+app.use("/user", controllers.users);
 
+// Recipes
+// TODO add "authRequired" in the middle
+app.use("/recipe", controllers.recipes);
+
+// Comments
+// TODO add "authRequired" in the middle
+app.use("/comments", controllers.comments);
 
 // Listener
 app.listen(3000, function(){
