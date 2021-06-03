@@ -1,8 +1,9 @@
 // === | External Modules | ===
 const express = require("express");
 const methodOverride = require("method-override");
-// const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 // === | Internal Modules | ===
 const controllers = require("./controllers");
@@ -12,6 +13,7 @@ const app = express();
 
 // === | Config | ===
 app.set("view engine", "ejs");
+require("dotenv").config();
 
 // === | Middleware | ===
 app.use(express.urlencoded({ extended: true }));
@@ -22,23 +24,23 @@ app.use((req, res, next) => {
 });
 // app.use(express.static(_dirname + "/public"));
 
-// app.use(
-//     session({
-//         store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-//         secret: process.env.SESSION_SECRET,
-//         resave: false,
-//         saveUninitialized: false,
-//         cookie: {
-//             maxAge: 1000 * 60 * 60 * 24 * 7 * 2,
-//         },
-//     })
-// );
+app.use(
+    session({
+        store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7 * 2,
+        },
+    })
+);
 
-// app.use(function(req, res, next) {
-//     console.log(`${req.method} - ${req.url}`);
-//     console.log(req.session);
-//     next();
-// });
+app.use(function(req, res, next) {
+    console.log(`${req.method} - ${req.url}`);
+    console.log(req.session);
+    next();
+});
 
 // app.use(function(req, res, next) {
 //     app.locals.user = req.sessions.currentUser;
@@ -80,16 +82,16 @@ app.get("/profileEdit", function(req, res){
 });
 
 // create
-app.post("/", function(req, res){
-    req.body.user = req.session.currentUser.id;
+// app.post("/", function(req, res){
+//     req.body.user = req.session.currentUser.id;
 
-    noods_db.User.create(req.body, function(err, createdUser) {
-        if(err) return res.send(err);
-        console.log(err);
+//     noods_db.User.create(req.body, function(err, createdUser) {
+//         if(err) return res.send(err);
+//         console.log(err);
 
-        return res.redirect("/profile");
-    });
-});
+//         return res.redirect("/profile");
+//     });
+// });
 
 // Recipe
 app.get("/recipe", function(req, res){
