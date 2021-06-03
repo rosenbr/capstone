@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const noods_db = require("../models");
-const User = require("../models/User.js");
+const User = require("../models/User");
 
 // TODO New User Route presentational form
 

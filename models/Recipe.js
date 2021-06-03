@@ -11,12 +11,12 @@ const recipeSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        user: {
-            type: mongoose.Schema.Types.ObjectId,
-            required: true
-        },
         portion: {
             type: Number,
+            required: true,
+        },
+        cookType: {
+            type: String,
             required: true,
         },
         spices: {
@@ -27,6 +27,10 @@ const recipeSchema = new mongoose.Schema(
         },
         veg: {
             type: String,
+        },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true
         },
         comment: {
             type: mongoose.Schema.Types.ObjectId,
