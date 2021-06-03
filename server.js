@@ -42,17 +42,17 @@ app.use(function(req, res, next) {
     next();
 });
 
-// app.use(function(req, res, next) {
-//     app.locals.user = req.sessions.currentUser;
-//     next();
-// });
+app.use(function(req, res, next) {
+    app.locals.user = req.session.currentUser;
+    next();
+});
 
-// const authRequired = function(req, res, next) {
-//     if(req.session.currentUser) {
-//         return next();
-//     }
-//     return res.redirect("/login");
-// };
+const authRequired = function(req, res, next) {
+    if(req.session.currentUser) {
+        return next();
+    }
+    return res.redirect("/login");
+};
 
 
 // === | Routes | ===
@@ -66,33 +66,6 @@ app.get("/home", function(req, res){
     res.render("../views/home");
 });
 
-// Browse
-app.get("/browse", function(req, res){
-    res.render("../views/browse");
-});
-
-// Catagory
-app.get("/catagory", function(req, res){
-    res.render("../views/catagory");
-});
-
-// Profile
-app.get("/profileEdit", function(req, res){
-    res.render("../views/profile/profileEdit");
-});
-
-// create
-// app.post("/", function(req, res){
-//     req.body.user = req.session.currentUser.id;
-
-//     noods_db.User.create(req.body, function(err, createdUser) {
-//         if(err) return res.send(err);
-//         console.log(err);
-
-//         return res.redirect("/profile");
-//     });
-// });
-
 // Recipe
 app.get("/recipe", function(req, res){
     res.render("../views/recipe");
@@ -103,12 +76,10 @@ app.get("/recipe", function(req, res){
 app.use("/users", controllers.users);
 
 // Recipes
-// TODO add "authRequired" in the middle
-app.use("/recipes", controllers.recipes);
+app.use("/recipes", authRequired, controllers.recipes);
 
 // Comments
-// TODO add "authRequired" in the middle
-app.use("/comments", controllers.comments);
+app.use("/comments", authRequired, controllers.comments);
 
 // === | Listener | ===
 app.listen(3000, function(){

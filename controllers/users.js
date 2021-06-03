@@ -2,25 +2,20 @@ const express = require("express");
 const router = express.Router();
 const noods_db = require("../models");
 const bcrypt = require("bcryptjs");
-const User = require("../models/User");
+const User = require("../models");
 const session = require("express-session");
 
-router.get("/profile", function(req, res){
-    res.render("../views/profile/profile");
+// Show Route presentational
+router.get("/profile/:id", function(req, res) {
+    noods_db.User.findById(req.params.id)
+        .populate("recipes", "comments")
+        .exec(function (err, foundUser) {
+            if (err) return res.send(err);
+
+            const context = { user: foundUser };
+            return res.render("profile/profile", context);
+        });
 });
-
-// TODO Show Route presentational
-// router.get("/:id", function(req, res) {
-//     noods_db.User.findById(req.params.id)
-//         .populate("recipes", "comments")
-//         .exec(function (err, foundUser) {
-//             if (err) return res.send(err);
-
-//             const context = { user: foundUser };
-//             return res.render("users/profile");
-//         });
-// });
-
 
 // Create Route
 router.get("/register", function(req, res) {
@@ -71,22 +66,5 @@ router.delete("/logout", async function(req, res) {
     await req.session.destroy();
     return res.redirect("/");
 });
-
-// TODO Edit Route presentational
-// router.get("/:id/profileEdit", function(req, res) {
-//     noods_db.User.findById(req.body.params.id, function(err, foundUser) {
-//         if(err) {
-//             console.log(err);
-//         } else {
-//             res.render(editProfile, {
-//                 userEdit: foundUser
-//             });
-//         }
-//     });
-// });
-
-
-// TODO Update User Route functional
-
 
 module.exports = router;

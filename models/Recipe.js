@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { builtinModules } = require("node:module");
 
 const recipeSchema = new mongoose.Schema(
     {
@@ -15,7 +14,7 @@ const recipeSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
-        cookType: {
+        cookMethod: {
             type: String,
             required: true,
         },
@@ -25,7 +24,7 @@ const recipeSchema = new mongoose.Schema(
         proteins: {
             type: String,
         },
-        veg: {
+        veggies: {
             type: String,
         },
         user: {
