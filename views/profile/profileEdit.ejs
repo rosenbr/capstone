@@ -7,8 +7,10 @@
     <title>Noods</title>
 </head>
 <body>
-    <h1>Landing Page</h1>
-    <a href="/users/register">Register</a>
-    <a href="/users/login">Login</a>
+    <h1>Profile Edit page</h1>
+    <form action="/profile/<%= userEdit.id %>?_method=PUT" method="POST">
+        Bio: <input type="text" name="bio" value="<%= userEdit.bio %>" />
+        <input type="submit" valuye="Submit" />
+    </form>
 </body>
 </html>

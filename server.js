@@ -1,20 +1,25 @@
+// === | External Modules | ===
 const express = require("express");
 const methodOverride = require("method-override");
+// const bcrypt = require("bcryptjs");
 const session = require("express-session");
 
-// Internal Modules
+// === | Internal Modules | ===
 const controllers = require("./controllers");
-const { nextTick } = require("node:process");
 
-// Instanced Modules
+// === | Instanced Modules| ===
 const app = express();
 
-// Config
+// === | Config | ===
 app.set("view engine", "ejs");
 
-// Middleware
+// === | Middleware | ===
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.originalUrl}`);
+    next();
+});
 // app.use(express.static(_dirname + "/public"));
 
 // app.use(
@@ -48,7 +53,7 @@ app.use(methodOverride("_method"));
 // };
 
 
-// Routes
+// === | Routes | ===
 // Landing
 app.get("/", function(req, res){
     res.render("../views/index");
@@ -70,8 +75,20 @@ app.get("/catagory", function(req, res){
 });
 
 // Profile
-app.get("/profile", function(req, res){
-    res.render("../views/profile");
+app.get("/profileEdit", function(req, res){
+    res.render("../views/profile/profileEdit");
+});
+
+// create
+app.post("/", function(req, res){
+    req.body.user = req.session.currentUser.id;
+
+    noods_db.User.create(req.body, function(err, createdUser) {
+        if(err) return res.send(err);
+        console.log(err);
+
+        return res.redirect("/profile");
+    });
 });
 
 // Recipe
@@ -79,24 +96,19 @@ app.get("/recipe", function(req, res){
     res.render("../views/recipe");
 });
 
-// Controllers
-
-// Login/Register
-app.use("/", controllers.auth);
-
+// === | Controllers| ===
 // Users
-// TODO add "authRequired" in the middle
-app.use("/user", controllers.users);
+app.use("/users", controllers.users);
 
 // Recipes
 // TODO add "authRequired" in the middle
-app.use("/recipe", controllers.recipes);
+app.use("/recipes", controllers.recipes);
 
 // Comments
 // TODO add "authRequired" in the middle
 app.use("/comments", controllers.comments);
 
-// Listener
+// === | Listener | ===
 app.listen(3000, function(){
     console.log("Server Running on Port 3000");
 });

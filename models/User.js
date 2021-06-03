@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema(
         comment: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"
+        },
+        bio: {
+            type: String,
         }
     },
     {
