@@ -29,7 +29,7 @@ const recipeSchema = new mongoose.Schema(
         },
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            required: true
+            ref: "User"
         },
         comment: {
             type: mongoose.Schema.Types.ObjectId,

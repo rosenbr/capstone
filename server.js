@@ -54,7 +54,6 @@ const authRequired = function(req, res, next) {
     return res.redirect("/login");
 };
 
-
 // === | Routes | ===
 // Landing
 app.get("/", function(req, res){
@@ -64,11 +63,6 @@ app.get("/", function(req, res){
 // Home
 app.get("/home", function(req, res){
     res.render("../views/home");
-});
-
-// Recipe
-app.get("/recipe", function(req, res){
-    res.render("../views/recipe");
 });
 
 // === | Controllers| ===
