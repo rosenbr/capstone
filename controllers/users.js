@@ -5,7 +5,12 @@ const bcrypt = require("bcryptjs");
 const User = require("../models");
 const session = require("express-session");
 
-// Show Route presentational
+// Home Route
+// router.get("/users/home", function(req, res){
+//     res.render("../views/profile/home");
+// });
+
+// Show Route 
 router.get("/profile/:id", function(req, res) {
     noods_db.User.findById(req.params.id)
         .populate("recipes", "comments")
@@ -54,7 +59,7 @@ router.post("/login", async function(req, res) {
             id: foundUser.id,
             username: foundUser.username,
         };
-        return res.redirect("/home");
+        return res.redirect("/profile/home");
     } catch (err) { 
         console.log(err);
         res.send(err);

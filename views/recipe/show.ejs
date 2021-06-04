@@ -19,8 +19,8 @@
         <li>Protein: <%= recipe.proteins %></li>
         <li>Veggies: <%= recipe.veggies %></li>
     </ul>
-    <button>Edit</button>
-    <button>Delete</button>
+    <a href="/recipes/<%= recipe._id %>/edit">Edit</a>
+    <a href="/recipe/delete">Delete</a>
     <ul>Comments
         <li>Comment 1</li>
         <li>Comment 2</li>

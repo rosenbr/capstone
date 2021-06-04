@@ -17,14 +17,14 @@ const userSchema = new mongoose.Schema(
             required: [true, "Please Enter a Password."],
             unique: true,
         },
-        recipe: {
+        recipes: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Recipe"
-        },
-        comment: {
+        }],
+        comment: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"
-        },
+        }],
         bio: {
             type: String,
         }

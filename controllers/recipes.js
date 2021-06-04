@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const noods_db = require("../models");
-const Recipe = require("../models/Recipe")
 const session = require("express-session");
 
 // Index Route present
@@ -19,11 +18,8 @@ router.get("/new", function(req, res) {
     });
 });
 
-// TODO Show Route present
-// router.get("/recipe/recipe", function(req, res){
-//     res.render("../views/recipe/recipe");
-// });
-router.get("/show", function(req, res){
+// Show Route present
+router.get("/show/:id", function(req, res){
     noods_db.Recipe.findById(req.params.id)
         .populate("comments")
         .exec(function (err, foundRecipe) {
@@ -34,29 +30,50 @@ router.get("/show", function(req, res){
         });
 });
 
-// TODO Create Route functional
+// Create Route functional
 router.post("/show", function(req, res) {
+    req.body.user = req.session.currentUser.id
     noods_db.Recipe.create(req.body, function (err, createdRecipe) {
         console.log(createdRecipe);
         if (err) return res.send(err);
 
-        noods_db.Recipe.findById(createdRecipe.user).exec(function (err, foundRecipe) {
+        noods_db.User.findById(createdRecipe.user).exec(function (err, foundUser) {
             if (err) return res.send(err);
 
-            foundRecipe.recipe.push(createdRecipe);
-            foundRecipe.save();
+            foundUser.recipes.push(createdRecipe);
+            foundUser.save();
 
-            return res.redirect("recipe/show/:_id");
+            return res.redirect(`/recipes/show/${createdRecipe._id}`);
         });
     });
 });
 
-// TODO Edit Route present form
+// Edit Route present form
+router.get("/:id/edit", function(req, res) {
+    noods_db.Recipe.findById(req.params.id, function (err, foundRecipe) {
+        if (err) return res.send(err);
 
-
+        const context = { recipe: foundRecipe };
+        res.render("../views/recipe/edit", context);
+    });
+});
 
 // TODO Update Route functional
-
+router.put("/:id", function(req, res) {
+    noods_dbRecipe.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: {
+                ...req.body,
+            },
+        },
+        { new: true },
+        function (err, updatedRecipe) {
+            if (err) return res.send(err);
+            return res.redirect(`/recipes/show/${updatedRecipe._id}`);
+        }
+    );
+});
 
 
 // TODO Delete Route functional
