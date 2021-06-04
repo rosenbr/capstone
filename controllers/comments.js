@@ -1,14 +1,69 @@
 const express = require("express");
 const router = express.Router();
 const noods_db = require("../models");
+const session = require("express-session");
 
-// TODO Create Route
+// Index Route pres
+router.get("/index", function(req, res) {
+    noods_db.Comment.find({}, function(err, foundComment) {
+        if (err) return res.send(err);
 
-// TODO Show Route
+        const context = { comments: foundComment };
+        res.render("../views/comment/index", context);
+    });
+});
 
-// TODO Edit Route
 
-// TODO Delete Route
+// New Route pres from
+router.get("/new", function(req, res) {
+    noods_db.Comment.find({}, function(err, foundComment) {
+        if (err) return res.send(err);
+
+        const context = { comments: foundComment };
+        res.render("../views/comment/new", context);
+    });
+});
+
+
+// TODO Show Route pres
+router.get("/show/:id", function(req, res){
+    noods_db.Comment.findById(req.params.id)
+        .populate("comments")
+        .exec(function (err, foundComment) {
+            if (err) return res.send(err);
+
+            const context = { comments: foundComment };
+            return res.render(`../views/comment/show`, context);
+        });
+});
+
+// Create Route func
+router.post("/show", function(req, res) {
+    noods_db.Comment.create(req.body, function (err, createdComment) {
+        if (err) return res.send(err);
+
+        noods_db.Recipe.findById(createdComment.recipe).exec(function (err, foundRecipe) {
+            if (err) return res.send(err);
+
+            foundRecipe.comments.push(createdComment);
+            foundRecipe.save();
+
+            return res.redirect(`/recipes/show/${foundRecipe._id}`);
+        });
+    });
+});
+
+// TODO Edit Route pres form
+
+
+
+// TODO Update Route func
+
+
+
+// TODO Delete Route func
+
+
 
 
 module.exports = router;

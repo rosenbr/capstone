@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const noods_db = require("../models");
 const bcrypt = require("bcryptjs");
-const User = require("../models");
 const session = require("express-session");
 
 // Show Route 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Comment Index Page</h1>
+    <form action="/recipes/show" method="POST">
+        <input type="text" name="body" placeholder="Let them know how much you like their Noods!" />
+    </form>
+    <ul>Comments
+        <% if(comments) { %>  
+            <% comments.forEach(comment => { %>
+                <li><%= comment.body %></li>
+            <% }) %>
+        <% } %>
+    </ul>
+</body>
+</html>
