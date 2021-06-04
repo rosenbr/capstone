@@ -60,11 +60,6 @@ app.get("/", function(req, res){
     res.render("../views/index");
 });
 
-// Home
-app.get("/home", function(req, res){
-    res.render("../views/home");
-});
-
 // === | Controllers| ===
 // Users
 app.use("/users", controllers.users);

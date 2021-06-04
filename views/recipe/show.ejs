@@ -11,15 +11,15 @@
     <h3>Pic Placeholder?</h3>
     <h4>Recipe Info:</h4>
     <ul>
-        <li>Title: <%= recipe.title %></li>
-        <li>Description: <%= recipe.description %></li>
-        <li>Portion(s): <%= recipe.portion %></li>
-        <li>Cooking Method: <%= recipe.cookMethod %></li>
-        <li>Spices: <%= recipe.spices %></li>
-        <li>Protein: <%= recipe.proteins %></li>
-        <li>Veggies: <%= recipe.veggies %></li>
+        <li>Title: <%= recipes.title %></li>
+        <li>Description: <%= recipes.description %></li>
+        <li>Portion(s): <%= recipes.portion %></li>
+        <li>Cooking Method: <%= recipes.cookMethod %></li>
+        <li>Spices: <%= recipes.spices %></li>
+        <li>Protein: <%= recipes.proteins %></li>
+        <li>Veggies: <%= recipes.veggies %></li>
     </ul>
-    <a href="/recipes/<%= recipe._id %>/edit">Edit</a>
+    <a href="/recipes/<%= recipes._id %>/edit">Edit</a>
     <a href="/recipe/delete">Delete</a>
     <ul>Comments
         <li>Comment 1</li>

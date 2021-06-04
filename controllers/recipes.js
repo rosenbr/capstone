@@ -5,7 +5,12 @@ const session = require("express-session");
 
 // Index Route present
 router.get("/browse", function(req, res) {
-    res.render("../views/recipe/browse");
+    noods_db.Recipe.find({}, function(err, foundRecipe) {
+        if (err) return res.send(err);
+
+        const context = { recipes: foundRecipe };
+        res.render("../views/recipe/browse", context);
+    });
 });
 
 // New Route present form 
@@ -13,7 +18,7 @@ router.get("/new", function(req, res) {
     noods_db.Recipe.find({}, function(err, foundRecipe) {
         if (err) return res.send(err);
 
-        const context = { recipe: foundRecipe };
+        const context = { recipes: foundRecipe };
         res.render("../views/recipe/new", context);
     });
 });
@@ -25,8 +30,8 @@ router.get("/show/:id", function(req, res){
         .exec(function (err, foundRecipe) {
             if (err) return res.send(err);
 
-            const context = { recipe: foundRecipe };
-            return res.render("../views/recipe/show", context);
+            const context = { recipes: foundRecipe };
+            return res.render(`../views/recipe/show`, context);
         });
 });
 
@@ -53,12 +58,12 @@ router.get("/:id/edit", function(req, res) {
     noods_db.Recipe.findById(req.params.id, function (err, foundRecipe) {
         if (err) return res.send(err);
 
-        const context = { recipe: foundRecipe };
+        const context = { recipes: foundRecipe };
         res.render("../views/recipe/edit", context);
     });
 });
 
-// TODO Update Route functional
+// Update Route functional
 router.put("/:id", function(req, res) {
     noods_dbRecipe.findByIdAndUpdate(
         req.params.id,
@@ -70,11 +75,10 @@ router.put("/:id", function(req, res) {
         { new: true },
         function (err, updatedRecipe) {
             if (err) return res.send(err);
-            return res.redirect(`/recipes/show/${updatedRecipe._id}`);
+            return res.redirect(`../views/recipes/show/${updatedRecipe._id}`);
         }
     );
 });
-
 
 // TODO Delete Route functional
 

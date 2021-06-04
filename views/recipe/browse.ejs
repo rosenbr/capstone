@@ -11,11 +11,10 @@
     <a href="/recipes/new">Add Recipe</a>
     <div>
         <ul>Recipes
-            <li>Recipe 1</li>
-            <li>Recipe 2</li>
-            <li>Recipe 3</li>
-            <li>Recipe 4</li>
-            <li>Recipe 5</li>
+            <% recipes.forEach(recipes => { %>
+            <li><a href="/recipes/show/<%= recipes._id %>"><%= recipes.title %></a></li>
+                <% }) %>
+            
         </ul>
     </div>
 </body>
