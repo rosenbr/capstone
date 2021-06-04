@@ -63,7 +63,7 @@ router.post("/login", async function(req, res) {
 
 // Home Route
 router.get("/users/home", function(req, res){
-    res.render("/profile/home");
+    res.render("../views/profile/home");
 });
 
 // Logout

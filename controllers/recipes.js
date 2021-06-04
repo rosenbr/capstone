@@ -80,8 +80,19 @@ router.put("/:id", function(req, res) {
     );
 });
 
-// TODO Delete Route functional
+// Delete Route functional
+router.delete("/:id", function (req, res) {
+    noods_db.Recipe.findByIdAndDelete(req.params.id, function (err, deletedRecipe) {
+        if (err) return res.send(err);
 
+        noods_db.User.findById(deletedRecipe.user, function (err, foundUser) {
+            foundUser.recipes.remove(deletedRecipe);
+                foundUser.save();
+
+                return res.redirect("/recipes/browse");
+        });
+    });
+});
 
 
 

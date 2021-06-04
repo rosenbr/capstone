@@ -20,7 +20,9 @@
         <li>Veggies: <%= recipes.veggies %></li>
     </ul>
     <a href="/recipes/<%= recipes._id %>/edit">Edit</a>
-    <a href="/recipe/delete">Delete</a>
+    <form action="/recipes/<%= recipes._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Noods" />
+    </form>
     <ul>Comments
         <li>Comment 1</li>
         <li>Comment 2</li>
