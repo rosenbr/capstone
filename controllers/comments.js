@@ -25,7 +25,7 @@ router.get("/new", function(req, res) {
 });
 
 
-// TODO Show Route pres
+// Show Route pres
 router.get("/show/:id", function(req, res){
     noods_db.Comment.findById(req.params.id)
         .populate("comments")
@@ -53,16 +53,50 @@ router.post("/show", function(req, res) {
     });
 });
 
-// TODO Edit Route pres form
+// Edit Route pres form
+router.get("/edit", function(req, res) {
+    noods_db.Comment.find({}, function(err, foundComment) {
+        if (err) return res.send(err);
 
+        const context = { comments: foundComment };
+        res.render("../views/comment/edit", context);
+    });
+});
 
 
 // TODO Update Route func
-
+router.put("/show", function(req, res) {
+    noods_db.Comment.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: {
+                ...req.body,
+            },
+        },
+        { new: true },
+        {
+            function(err, updatedComment) {
+                if (err) return res.send(err);
+                return res.redirect(`../views/recipes/show/${updatedComment._id}`);
+            }
+        }
+    );
+});
 
 
 // TODO Delete Route func
+router.delete("/:id", function(req, res) {
+    noods_db.Comment.findByIdAndDelete(req.params.id, function(err, deletedComment) {
+        if (err) return res.send(err);
 
+        noods_db.Recipe.findById(deletedComment.recipes, function(err, foundRecipe) {
+            foundRecipe.comment.remove(deletedComment);
+            foundRecipe.save();
+
+            return res.redirect("/reicpes/show");
+        });
+    });
+});
 
 
 

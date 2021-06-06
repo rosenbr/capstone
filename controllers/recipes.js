@@ -65,7 +65,7 @@ router.get("/:id/edit", function(req, res) {
 
 // Update Route functional
 router.put("/:id", function(req, res) {
-    noods_dbRecipe.findByIdAndUpdate(
+    noods_db.Recipe.findByIdAndUpdate(
         req.params.id,
         {
             $set: {
