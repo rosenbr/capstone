@@ -58,7 +58,7 @@ router.get("/:id/edit", function(req, res) {
     noods_db.Recipe.findById(req.params.id, function (err, foundRecipe) {
         if (err) return res.send(err);
 
-        const context = { recipes: foundRecipe };
+        const context = { recipe: foundRecipe };
         res.render("../views/recipe/edit", context);
     });
 });
@@ -75,7 +75,7 @@ router.put("/:id", function(req, res) {
         { new: true },
         function (err, updatedRecipe) {
             if (err) return res.send(err);
-            return res.redirect(`recipes/show/${updatedRecipe._id}`);
+            return res.redirect(`/recipes/show/${updatedRecipe._id}`);
         }
     );
 });

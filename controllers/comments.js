@@ -52,47 +52,30 @@ router.post("/show", function(req, res) {
 });
 
 // Edit Route pres form
-router.get("/edit", function(req, res) {
-    noods_db.Comment.find({}, function(err, foundComment) {
+router.get("/edit/:id/:recipeId", function(req, res) {
+    noods_db.Comment.findById(req.params.id, function(err, foundComment) {
         if (err) return res.send(err);
 
-        const context = { comments: foundComment };
+        const context = { comment: foundComment, recipeId: req.params.recipeId };
         res.render("../views/comment/edit", context);
     });
 });
 
-// TODO Update Route func
-// router.put("/show", function(req, res) {
-//     noods_db.Comment.findByIdAndUpdate(
-//         req.params.id,
-//         {
-//             $set: {
-//                 ...req.body,
-//             },
-//         },
-//         { new: true },
-//         {
-//             function(err, updatedComment) {
-//                 if (err) return res.send(err);
-//                 return res.render(`../views/recipe/show`);
-//             }
-//         }
-//     );
-// });
-
-router.put("/recipes/show", function(req, res) {
-    noods_db.Comment.findByIdAndUpdate(req.body, function (err, updatedComment) {
-        if (err) return res.send(err);
-
-        noods_db.Recipe.findById(updatedComment.recipe).exec(function (err, foundRecipe) {
-            if (err) return res.send(err);
-
-            foundRecipe.comments.push(updatedComment);
-            foundRecipe.save();
-
-            return res.redirect(`/recipes/show/${foundRecipe._id}`);
-        });
-    });
+// Update Route func
+router.put("/edit/:id/:recipeId", function(req, res) {
+    noods_db.Comment.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set: {
+                ...req.body,
+            },
+        },
+        { new: true },
+            function(err, updatedComment) {
+                if (err) return res.send(err);
+                return res.redirect(`/recipes/show/${req.params.recipeId}`);
+            }
+    );
 });
 
 module.exports = router;

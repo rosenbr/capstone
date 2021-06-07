@@ -10,7 +10,7 @@
     <h1>Comment Edit Page</h1>
     <div>
         <!-- TODO show original comment -->
-        <form action="/recipes/show/<%= comments._id %>?_method=PUT" method="POST">
+        <form action="/comments/edit/<%= comment._id %>/<%= recipeId %>?_method=PUT" method="POST">
             <input type="text" name ="body" placeholder="New Comment" />
             <input type="submit" value="Update Comment" />
         </form>

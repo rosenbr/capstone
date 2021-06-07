@@ -15,7 +15,7 @@
         <ul>Recipes
             <% if(user.recipes) { %>  
                 <% user.recipes.forEach(recipes => { %>
-                    <li><%= recipes.title %></li>
+                    <li><a href="/recipes/show/<%= recipes._id %>"><%= user.recipes.title %></a></li>
                 <% }) %>
             <% } %>
         </ul>
@@ -24,13 +24,7 @@
         <ul>Comments
             <% if(user.recipes.comments) { %>  
                 <% recipes.comments.forEach(comment => { %>
-                    <li><%= comment.body %>
-                        <a href="/comments/edit">Edit</a>
-                        <input type="hidden" name="recipe" value="<%= recipes._id %>" />
-                        <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                            <input type="submit" value="Delete Comment" />
-                        </form>
-                    </li>
+                    <li><%= comment.body %></li>
                 <% }) %>
             <% } %>
         </ul>

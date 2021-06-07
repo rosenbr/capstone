@@ -9,7 +9,7 @@
 <body>
     <h1>Edit Page</h1>
     <div>
-        <form action="/recipes/show" method="POST">Form start
+        <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">Form start
             <p>
                 <input type="text" name="title" placeholder="Title" />
             </p>

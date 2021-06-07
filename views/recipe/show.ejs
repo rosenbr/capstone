@@ -35,7 +35,7 @@
         <% if(recipes.comments) { %>  
             <% recipes.comments.forEach(comment => { %>
                 <li><%= comment.body %>
-                    <a href="/comments/edit">Edit</a>
+                    <a href="/comments/edit/<%= comment._id %>/<%= recipes._id %>">Edit</a>
                     <input type="hidden" name="recipe" value="<%= recipes._id %>" />
                     <form action="/recipes/show/<%= recipes._id %>/<%= comment._id %>?_method=DELETE" method="POST">
                         <input type="submit" value="Delete Comment" />
