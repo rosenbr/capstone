@@ -56,6 +56,7 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 === | **Technologies Used** | ===
 
 -Express
+
 -MongoDB
 
 

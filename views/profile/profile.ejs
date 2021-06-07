@@ -13,9 +13,9 @@
     <a href="/users/about">About</a>
     <div>
         <ul>Recipes
-            <% if(user.recipes) { %>  
-                <% user.recipes.forEach(recipes => { %>
-                    <li><a href="/recipes/show/<%= recipes._id %>"><%= user.recipes.title %></a></li>
+            <% if(user.recipe) { %>  
+                <% user.recipe.forEach(recipe => { %>
+                    <li><a href="/recipes/show/<%= recipe._id %>"><%= user.recipe.title %></a></li>
                 <% }) %>
             <% } %>
         </ul>

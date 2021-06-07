@@ -12,10 +12,11 @@
     <a href="/users/profile/<%= user.id %>">Profile</a>
     <h1>Recipe Page</h1>
     <h3>Pic Placeholder?</h3>
+    <h4>Posted by: <%= user.username %></h4>
     <h4>Recipe Info:</h4>
     <ul>
         <li>Title: <%= recipes.title %></li>
-        <li>Description: <%= recipes.description %></li>
+        <li>Directions: <%= recipes.description %></li>
         <li>Portion(s): <%= recipes.portion %></li>
         <li>Cooking Method: <%= recipes.cookMethod %></li>
         <li>Spices: <%= recipes.spices %></li>
@@ -34,7 +35,7 @@
     <ul>Comments
         <% if(recipes.comments) { %>  
             <% recipes.comments.forEach(comment => { %>
-                <li><%= comment.body %>
+                <li><%= user.username %> says: <%= comment.body %></br>
                     <a href="/comments/edit/<%= comment._id %>/<%= recipes._id %>">Edit</a>
                     <input type="hidden" name="recipe" value="<%= recipes._id %>" />
                     <form action="/recipes/show/<%= recipes._id %>/<%= comment._id %>?_method=DELETE" method="POST">
