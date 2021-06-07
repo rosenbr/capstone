@@ -13,8 +13,6 @@ Home Page:
 ![Home Page Wirefreame](../public/README_images/HomePage.png)
 Browse page:
 ![Browse Page Wirefreame](../public/README_images/BrowsePage.png)
-Catagory Page:
-![Catagory Page Wirefreame](../public/README_images/CatagoryPage.png)
 Recipe Page:
 ![Recipe Page Wirefreame](../public/README_images/RecipePage.png)
 Profile Page:
@@ -26,15 +24,14 @@ The User starts off by navigating to the website where they will be directed to 
 
 At the Landing Page, the User will be prompted to Sign Up, for new Users, or Login, for existing Users.
 
-After Loging or Sign Up the User is redirected to to the Home Page, which displays a Feed of varying Recipe Posts.
+After Loging or Sign Up the User is redirected to to the Home Page, which displays site navigation.
 
-The User can navigate to any Recipost on the Home Page, or use the Sidebar to Browse different Catagories or Search for Recipes.
+<!-- TODO may need rewording/editing -->
+The User can navigate to any Recipe post on the Home Page, or use the Sidebar to Browse different Recipes or Search for Recipes.
 
-If the User decides to Browse, they are redirected to the Browse Page, which lists the different Catagories.
+If the User decides to Browse, they are redirected to the Browse Page, which lists the different Recipes available for viewing.
 
-Upon selecting a Catagory of interest, the User is redirected to the Catagory Page which contains a list of Recipes that fit the selected Catagory.
-
-The User then has the option to create a new Recipe for that Catagory, or the User can select a Recipe to view.
+The User then has the option to create a new Recipe, or select a Recipe to view.
 
 The Recipe Page displays how one User decided to make their Instant Noodles with all the directions and ingredients displayed for other Users to read.
 

@@ -37,7 +37,7 @@
                 <li><%= comment.body %>
                     <a href="/comments/edit">Edit</a>
                     <input type="hidden" name="recipe" value="<%= recipes._id %>" />
-                    <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                    <form action="/recipes/show/<%= recipes._id %>/<%= comment._id %>?_method=DELETE" method="POST">
                         <input type="submit" value="Delete Comment" />
                     </form>
                 </li>

@@ -10,14 +10,29 @@
     <h1><%= user.username %></h1>
     <a href="/" action="/logout">Log Out</a>
     <a href="/recipes/browse">Browse</a>
+    <a href="/users/about">About</a>
     <div>
         <ul>Recipes
-            <li>flounder in recipes with forEach method</li>
+            <% if(user.recipes) { %>  
+                <% user.recipes.forEach(recipes => { %>
+                    <li><%= recipes.title %></li>
+                <% }) %>
+            <% } %>
         </ul>
     </div>
     <div>
         <ul>Comments
-            <li>flounder in comments with forEach method</li>
+            <% if(user.recipes.comments) { %>  
+                <% recipes.comments.forEach(comment => { %>
+                    <li><%= comment.body %>
+                        <a href="/comments/edit">Edit</a>
+                        <input type="hidden" name="recipe" value="<%= recipes._id %>" />
+                        <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete Comment" />
+                        </form>
+                    </li>
+                <% }) %>
+            <% } %>
         </ul>
     </div>
 </body>

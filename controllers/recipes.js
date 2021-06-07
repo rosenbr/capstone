@@ -31,7 +31,7 @@ router.get("/show/:id", function(req, res){
             if (err) return res.send(err);
 
             const context = { recipes: foundRecipe };
-            return res.render(`../views/recipe/show`, context);
+            return res.render("../views/recipe/show", context);
         });
 });
 
@@ -75,12 +75,12 @@ router.put("/:id", function(req, res) {
         { new: true },
         function (err, updatedRecipe) {
             if (err) return res.send(err);
-            return res.redirect(`../views/recipes/show/${updatedRecipe._id}`);
+            return res.redirect(`recipes/show/${updatedRecipe._id}`);
         }
     );
 });
 
-// Delete Route functional
+// Delete Recipe Route
 router.delete("/:id", function (req, res) {
     noods_db.Recipe.findByIdAndDelete(req.params.id, function (err, deletedRecipe) {
         if (err) return res.send(err);
@@ -94,6 +94,18 @@ router.delete("/:id", function (req, res) {
     });
 });
 
+// Delete Comment Route
+router.delete("/show/:id/:id", function(req, res) {
+    noods_db.Comment.findByIdAndDelete(req.params.id, function(err, deletedComment) {
+        if (err) return res.send(err);
+        noods_db.Recipe.findById(deletedComment.recipe, function(err, foundRecipe) {
 
+            foundRecipe.comments.remove(deletedComment._id);
+            foundRecipe.save();
+
+            return res.redirect(`/recipes/show/${foundRecipe._id}`);
+        });
+    });
+});
 
 module.exports = router;

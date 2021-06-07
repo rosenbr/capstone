@@ -13,7 +13,6 @@ router.get("/index", function(req, res) {
     });
 });
 
-
 // New Route pres from
 router.get("/new", function(req, res) {
     noods_db.Comment.find({}, function(err, foundComment) {
@@ -23,7 +22,6 @@ router.get("/new", function(req, res) {
         res.render("../views/comment/new", context);
     });
 });
-
 
 // Show Route pres
 router.get("/show/:id", function(req, res){
@@ -63,41 +61,38 @@ router.get("/edit", function(req, res) {
     });
 });
 
-
 // TODO Update Route func
-router.put("/show", function(req, res) {
-    noods_db.Comment.findByIdAndUpdate(
-        req.params.id,
-        {
-            $set: {
-                ...req.body,
-            },
-        },
-        { new: true },
-        {
-            function(err, updatedComment) {
-                if (err) return res.send(err);
-                return res.redirect(`../views/recipes/show/${updatedComment._id}`);
-            }
-        }
-    );
-});
+// router.put("/show", function(req, res) {
+//     noods_db.Comment.findByIdAndUpdate(
+//         req.params.id,
+//         {
+//             $set: {
+//                 ...req.body,
+//             },
+//         },
+//         { new: true },
+//         {
+//             function(err, updatedComment) {
+//                 if (err) return res.send(err);
+//                 return res.render(`../views/recipe/show`);
+//             }
+//         }
+//     );
+// });
 
-
-// TODO Delete Route func
-router.delete("/:id", function(req, res) {
-    noods_db.Comment.findByIdAndDelete(req.params.id, function(err, deletedComment) {
+router.put("/recipes/show", function(req, res) {
+    noods_db.Comment.findByIdAndUpdate(req.body, function (err, updatedComment) {
         if (err) return res.send(err);
 
-        noods_db.Recipe.findById(deletedComment.recipes, function(err, foundRecipe) {
-            foundRecipe.comment.remove(deletedComment);
+        noods_db.Recipe.findById(updatedComment.recipe).exec(function (err, foundRecipe) {
+            if (err) return res.send(err);
+
+            foundRecipe.comments.push(updatedComment);
             foundRecipe.save();
 
-            return res.redirect("/reicpes/show");
+            return res.redirect(`/recipes/show/${foundRecipe._id}`);
         });
     });
 });
-
-
 
 module.exports = router;
