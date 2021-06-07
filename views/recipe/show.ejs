@@ -7,6 +7,9 @@
     <title>Noods</title>
 </head>
 <body>
+    <a href="/users/home">Home</a>
+    <a href="/recipes/browse">Browse</a>
+    <a href="/users/profile/<%= user.id %>">Profile</a>
     <h1>Recipe Page</h1>
     <h3>Pic Placeholder?</h3>
     <h4>Recipe Info:</h4>
@@ -35,7 +38,7 @@
                     <a href="/comments/edit">Edit</a>
                     <input type="hidden" name="recipe" value="<%= recipes._id %>" />
                     <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete" />
+                        <input type="submit" value="Delete Comment" />
                     </form>
                 </li>
             <% }) %>
