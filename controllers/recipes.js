@@ -2,19 +2,15 @@ const express = require("express");
 const router = express.Router();
 const noods_db = require("../models");
 const session = require("express-session");
+const { populate } = require("../models/User");
 
 // Index Route present
 router.get("/browse", function(req, res) {
-    noods_db.Recipe.find({}, async function(err, foundRecipe) {
+    noods_db.Recipe.find({}).populate("user").exec(function(err, foundRecipe) {
         if (err) return res.send(err);
         console.log(foundRecipe, "found recipe");
-        // noods_db.User.findById(foundRecipe.user, function(err, foundUser) {
-            //     if (err) return res.send(err);
-            //     console.log(foundUser, "foundUser");
-            // });
-        const foundUser = await noods_db.User.findById(foundRecipe.user).exec(); 
-        console.log(foundUser, "found user");
-        const context = { recipes: foundRecipe, foundUser: foundUser };
+       
+        const context = { recipes: foundRecipe };
         res.render("../views/recipe/browse", context);
     });
 });
@@ -32,7 +28,12 @@ router.get("/new", function(req, res) {
 // Show Route present
 router.get("/show/:id", function(req, res){
     noods_db.Recipe.findById(req.params.id)
-        .populate("comments")
+        .populate({
+            path: "comments",
+            populate: {
+                path: "user",
+            }
+        })
         .exec(function (err, foundRecipe) {
             if (err) return res.send(err);
 

@@ -13,7 +13,6 @@
     <a href="/users/profile/<%= user.id %>">Profile</a>
     <a href="/" action="/logout">Log Out</a>
     <h1>Recipe Page</h1>
-    <h3>Pic Placeholder?</h3>
     <h4>Posted by: <%= user.username %></h4>
     <h4>Recipe Info:</h4>
     <ul>
@@ -33,11 +32,12 @@
     <form action="/comments/show/" method="POST">
         <input type="hidden" name="recipe" value="<%= recipes._id %>" />
         <input type="text" name="body" placeholder="Let them know how much you like their Noods!" />
+        <input type="submit" value="Tell 'em!">
     </form>
     <ul>Comments
         <% if(recipes.comments) { %>  
             <% recipes.comments.forEach(comment => { %>
-                <li><%= user.username %> says: <%= comment.body %></br>
+                <li><%= comment.user.username %> says: <%= comment.body %></br>
                     <a href="/comments/edit/<%= comment._id %>/<%= recipes._id %>">Edit</a>
                     <input type="hidden" name="recipe" value="<%= recipes._id %>" />
                     <form action="/recipes/show/<%= recipes._id %>/<%= comment._id %>?_method=DELETE" method="POST">

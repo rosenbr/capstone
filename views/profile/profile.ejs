@@ -15,13 +15,13 @@
     <a href="/recipes/new">Add Recipe</a>
     <div>
         <ul>Recipes
-            <% if(!user.recipe) { %>
+            <% if(!user.recipes) { %>
             <p>You haven't posted any Noods yet! ;)</p>
             <% } %>
 
-            <% if(user.recipe) { %>  
-                <% user.recipe.forEach(recipe => { %>
-                    <li><a href="/recipes/show/<%= recipe._id %>"><%= user.recipe.title %></a></li>
+            <% if(user.recipes) { %>  
+                <% user.recipes.forEach(recipe => { %>
+                    <li><a href="/recipes/show/<%= recipe._id %>"><%= user.recipes.title %></a></li>
                 <% }) %>
             <% } %>
         </ul>

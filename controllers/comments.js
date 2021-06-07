@@ -37,6 +37,7 @@ router.get("/show/:id", function(req, res){
 
 // Create Route func
 router.post("/show", function(req, res) {
+    req.body.user = req.session.currentUser.id;
     noods_db.Comment.create(req.body, function (err, createdComment) {
         if (err) return res.send(err);
 

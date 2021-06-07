@@ -22,7 +22,9 @@ router.get("/ssb", function(req, res) {
 // Show Route 
 router.get("/profile/:id", function(req, res) {
     noods_db.User.findById(req.params.id)
-        .populate("recipes", "comments")
+        .populate({
+            path: "recipes",
+        })
         .exec(function (err, foundUser) {
             if (err) return res.send(err);
 

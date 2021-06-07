@@ -16,8 +16,8 @@
     <a href="/recipes/new">Add Recipe</a>
     <div>
         <ul>Recipes
-            <% recipes.forEach(recipes => { %>
-            <li><a href="/recipes/show/<%= recipes._id %>"><%= recipes.title %> by: <%= user.username %></a></li>
+            <% recipes.forEach(recipe  => { %>
+            <li><a href="/recipes/show/<%= recipe._id %>"><%= recipe.title %> by: <%= recipe.user.username %></a></li>
                 <% }) %>
             
         </ul>
