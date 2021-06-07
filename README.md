@@ -59,7 +59,6 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 
 -MongoDB
 
-
 === | **Unsolved Mysteries** | ===
 
 <!-- X-Files song intensifies -->

@@ -7,24 +7,21 @@
     <title>Noods</title>
 </head>
 <body>
-    <h1><%= user.username %></h1>
-    <a href="/" action="/logout">Log Out</a>
-    <a href="/recipes/browse">Browse</a>
+    <a href="/users/home">Home</a>
     <a href="/users/about">About</a>
+    <a href="/recipes/browse">Browse</a>
+    <a href="/" action="/logout">Log Out</a>
+    <h1><%= user.username %></h1>
+    <a href="/recipes/new">Add Recipe</a>
     <div>
         <ul>Recipes
+            <% if(!user.recipe) { %>
+            <p>You haven't posted any Noods yet! ;)</p>
+            <% } %>
+
             <% if(user.recipe) { %>  
                 <% user.recipe.forEach(recipe => { %>
                     <li><a href="/recipes/show/<%= recipe._id %>"><%= user.recipe.title %></a></li>
-                <% }) %>
-            <% } %>
-        </ul>
-    </div>
-    <div>
-        <ul>Comments
-            <% if(user.recipes.comments) { %>  
-                <% recipes.comments.forEach(comment => { %>
-                    <li><%= comment.body %></li>
                 <% }) %>
             <% } %>
         </ul>

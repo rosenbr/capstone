@@ -5,10 +5,16 @@ const session = require("express-session");
 
 // Index Route present
 router.get("/browse", function(req, res) {
-    noods_db.Recipe.find({}, function(err, foundRecipe) {
+    noods_db.Recipe.find({}, async function(err, foundRecipe) {
         if (err) return res.send(err);
-
-        const context = { recipes: foundRecipe };
+        console.log(foundRecipe, "found recipe");
+        // noods_db.User.findById(foundRecipe.user, function(err, foundUser) {
+            //     if (err) return res.send(err);
+            //     console.log(foundUser, "foundUser");
+            // });
+        const foundUser = await noods_db.User.findById(foundRecipe.user).exec(); 
+        console.log(foundUser, "found user");
+        const context = { recipes: foundRecipe, foundUser: foundUser };
         res.render("../views/recipe/browse", context);
     });
 });

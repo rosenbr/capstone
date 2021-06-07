@@ -61,9 +61,9 @@ router.get("/login", function(req, res) {
 router.post("/login", async function(req, res) {
     try {
         const foundUser = await noods_db.User.findOne({ email: req.body.email });
-        if (!foundUser) return res.redirect("/register");
+        if (!foundUser) return res.redirect("/users/register");
         const match = await bcrypt.compare(req.body.password, foundUser.password);
-        if (!match) return res.send("Email or Password Invalid");
+        if (!match) return res.send("No Noods for you! Email or Password Invalid");
         req.session.currentUser = {
             id: foundUser.id,
             username: foundUser.username,
