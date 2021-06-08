@@ -5,31 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type ="text/css" href="/styles/main.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Noods</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a class="nav__link" href="/users/home">Home</a>
-            <a class="nav__link" href="/recipes/browse">Browse</a>
-            <a class="nav__link" href="/" action="/logout">Log Out</a>
-        </nav>
-    </header>
-    <h1><%= user.username %></h1>
-    <a href="/recipes/new">Add Recipe</a>
+    <%- include("../header") %>
     <div>
-        <ul>Recipes
-            <% if(!user.recipes) { %>
-            <p>You haven't posted any Noods yet! ;)</p>
-            <% } %>
-
-            <% if(user.recipes) { %>  
-                <% user.recipes.forEach(recipe => { %>
-                    <!-- TODO get title to populate -->
-                    <li><a href="/recipes/show/<%= recipe._id %>"><%= user.recipes %></a></li>
-                <% }) %>
-            <% } %>
-        </ul>
+        <div class="profile__header">
+            <h1><%= user.username %></h1>
+            <a class="profile__link" href="/recipes/new">Add Recipe</a>
+        </div>
+        <div class="profile__recipes">
+            <ul>Recipes
+                <% if(!user.recipes) { %>
+                <p>You haven't posted any Noods yet! ;)</p>
+                <% } %>
+                <% if(user.recipes) { %>  
+                    <% user.recipes.forEach(recipe => { %>
+                        <li><a class="profile__link" href="/recipes/show/<%= recipe._id %>"><%= recipe.title %></a></li>
+                    <% }) %>
+                <% } %>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

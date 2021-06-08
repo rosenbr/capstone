@@ -13,6 +13,15 @@ p {
     /* color: #8F481E; */
 }
 
+a {
+    color: #47240F;
+}
+
+input {
+    cursor: pointer;
+}
+
+/* Navbar */
 .navbar {
     background-color: #568709;
     height: 75px;
@@ -23,15 +32,29 @@ p {
     justify-content: flex-end;
 }
 
-.nav__link {
+.navbar__right {
     background-color: #568709;
-    margin: 5px 10px
 }
 
+.navbar__image {
+    height: 60px;
+    width: auto;
+    background-color: #568709;
+    color: #47240F;
+}
+
+.nav__link {
+    background-color: #568709;
+    color: #47240F;
+    margin: 0 8px;
+}
+
+/* Home Page */
 .home__container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 25px;
 }
 
 .p__container {
@@ -45,18 +68,83 @@ p {
     font-size: x-large;
 }
 
-.browse__container {
-    display: flex;
-    flex-direction: column;
-}
-
+/* Browse Page */
 .browse__head {
     display: flex;
-    align-items: baseline;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
 }
 
 .browse__user {
     display: flex;
     justify-content: flex-end;
+}
+
+.browse__link {
+    color: #47240F;
+}
+
+.recipes__container {
+    display: flex;
+}
+
+.recipes__list {
+    margin: 25px;
+    font-size: xx-large;
+}
+
+.recipes {
+    margin: 10px 0;
+    font-size: x-large;
+}
+
+.recipe__container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Landing Page */
+.landing__card {
+    /* border: #47240F solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    padding: 50px 0;
+}
+
+.register__input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+
+#register__header {
+    padding: 10px 0 10px 0;
+}
+
+.login__input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.landing__buttons {
+    width: 75px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #47240F;
+    color: #FFaF03;
+}
+
+/* Profile Page */
+.profile__link {
+    color: #47240F;
 }

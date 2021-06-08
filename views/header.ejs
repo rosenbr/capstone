@@ -1,0 +1,12 @@
+<header>
+    <nav class="navbar">
+        <div class="navbar__image">
+            <img class="navbar__image" src="/images/ramen-icon-6.png" alt="Noods Logo" />
+        </div>
+        <div class="navbar__right">
+            <a class="nav__link" href="/recipes/browse">Browse</a>
+            <a class="nav__link" href="/users/profile/<%= user.id %>"><%= user.username %></a>
+            <a class="nav__link" href="/" action="/logout">Log Out</a>
+        </div>
+    </nav>
+</header>

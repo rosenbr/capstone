@@ -43,7 +43,7 @@ router.post("/register", async function(req, res) {
         const hash = await bcrypt.hash(req.body.password, salt);
         req.body.password = hash;
         const newUser = await noods_db.User.create(req.body);
-        return res.redirect("/users/login");
+        return res.redirect("/");
     } catch (err) {
         console.log(err);
         return res.send(err);
