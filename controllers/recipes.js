@@ -8,7 +8,6 @@ const { populate } = require("../models/User");
 router.get("/browse", function(req, res) {
     noods_db.Recipe.find({}).populate("user").exec(function(err, foundRecipe) {
         if (err) return res.send(err);
-        console.log(foundRecipe, "found recipe");
        
         const context = { recipes: foundRecipe };
         res.render("../views/recipe/browse", context);
@@ -46,7 +45,6 @@ router.get("/show/:id", function(req, res){
 router.post("/show", function(req, res) {
     req.body.user = req.session.currentUser.id
     noods_db.Recipe.create(req.body, function (err, createdRecipe) {
-        console.log(createdRecipe);
         if (err) return res.send(err);
 
         noods_db.User.findById(createdRecipe.user).exec(function (err, foundUser) {

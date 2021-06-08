@@ -21,7 +21,8 @@
 
             <% if(user.recipes) { %>  
                 <% user.recipes.forEach(recipe => { %>
-                    <li><a href="/recipes/show/<%= recipe._id %>"><%= user.recipes.title %></a></li>
+                    <!-- TODO get title to populate -->
+                    <li><a href="/recipes/show/<%= recipe._id %>"><%= user.recipes %></a></li>
                 <% }) %>
             <% } %>
         </ul>
