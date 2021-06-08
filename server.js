@@ -22,7 +22,8 @@ app.use((req, res, next) => {
     console.log(`${req.method} ${req.originalUrl}`);
     next();
 });
-// app.use(express.static(_dirname + "/public"));
+app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/styles"));
 
 app.use(
     session({

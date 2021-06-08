@@ -9,11 +9,6 @@ router.get("/home", function(req, res){
     res.render("../views/profile/home");
 });
 
-// About Route
-router.get("/about", function(req, res) {
-    res.render("../views/profile/about");
-});
-
 // SUPER SECRET BROWNIES ("Shhhhh....its a secret")
 router.get("/ssb", function(req, res) {
     res.render("../views/recipe/brownies");

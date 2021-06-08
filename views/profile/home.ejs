@@ -4,14 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type ="text/css" href="/styles/main.css" >
     <title>Noods</title>
 </head>
 <body>
-    <h1>Home Page</h1>
-    <h3>Welcome <%= user.username %>!</h3>
-    <a href="/recipes/browse">Browse</a>
-    <a href="/users/about">About</a>
-    <a href="/users/profile/<%= user.id %>">Profile</a>
-    <a href="/" action="/logout">Log Out</a>
+    <header>
+        <nav class="navbar">
+            <a class="nav__link" href="/recipes/browse">Browse</a>
+            <a class="nav__link" href="/users/profile/<%= user.id %>">Profile</a>
+            <a class="nav__link" href="/" action="/logout">Log Out</a>
+        </nav>
+    </header>
+    <div class="home__container">
+        <h1>Home of the Noods</h1>
+        <h3>Welcome <%= user.username %>!</h3>
+        <div class="p__container">
+            <h1>About Noods</h1>
+                <p class="p__about">Welcome to Noods! Your one-stop-shop for the best Instant Noodle recipes. Feel free to show us your best Noods and let others know how much you've enjoyed their Noods!</p>
+                <p class="p__about">Borke and eating Insta Noods to save some money? Getting tired of the same ol' same ol' every day? We've been there and done that. Sucks, right? That's where Noods comes in, spice up your Nood game with some tasty recipes! We got the Noods you crave!</p>
+        </div>
+    </div>
 </body>
 </html>
