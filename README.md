@@ -46,7 +46,8 @@ Once at the Profile Page, a User can update their info and profile pic and see a
 ![ERD](./public/README_images/ERD.png)
 
 === | **Link** | ===
-<!-- Deployment Link -->
+
+https://yournoods.herokuapp.com/
 
 === | **Elevator Pitch** | ===
 
