@@ -15,9 +15,9 @@
             <h1><%= recipes.title %> Recipe</h1>
             <h4>Posted by: <%= user.username %></h4>
             <div class="recipe__buttons">
-                <a href="/recipes/<%= recipes._id %>/edit">Edit</a>
+                <a id="recipe__link" href="/recipes/<%= recipes._id %>/edit">Edit</a>
                 <form action="/recipes/<%= recipes._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="No More Noods" />
+                    <input id="recipe__button" type="submit" value="No Noods For You" />
                 </form>
             </div>
         </div>
@@ -35,24 +35,24 @@
         </div>
         
     </div>
-    <!-- Comments -->
     <div class="recipe__commentsContainer">
         <div class="recipe__commentButtons">
+            <h3>Comments</h3>
             <form action="/comments/show/" method="POST">
                 <input type="hidden" name="recipe" value="<%= recipes._id %>" />
                 <input type="text" name="body" placeholder="Let them know how much you like their Noods!" />
-                <input type="submit" value="Tell 'em!">
+                <input id="recipe__button" type="submit" value="Tell 'em!">
             </form>
         </div>
         <div class="recipe__comments">
-            <ul>Comments
+            <ul>
                 <% if(recipes.comments) { %>  
                     <% recipes.comments.forEach(comment => { %>
                         <li class="comment"><u><%= comment.user.username %></u> | <%= comment.body %></br>
-                            <a href="/comments/edit/<%= comment._id %>/<%= recipes._id %>">Edit</a>
+                            <a id="recipe__link" href="/comments/edit/<%= comment._id %>/<%= recipes._id %>">Edit</a>
                             <input type="hidden" name="recipe" value="<%= recipes._id %>" />
                             <form action="/recipes/show/<%= recipes._id %>/<%= comment._id %>?_method=DELETE" method="POST">
-                                <input type="submit" value="Delete Comment" />
+                                <input id="recipe__button" type="submit" value="Shhh...." />
                             </form>
                         </li>
                     <% }) %>

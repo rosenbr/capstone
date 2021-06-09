@@ -21,7 +21,7 @@ input {
     cursor: pointer;
 }
 
-/* Navbar */
+/* === | Navbar | === */
 .navbar {
     background-color: #568709;
     height: 75px;
@@ -49,7 +49,7 @@ input {
     margin: 0 8px;
 }
 
-/* Home Page */
+/* === | Home Page | === */
 .home__container {
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@ input {
     font-size: x-large;
 }
 
-/* Browse Page */
+/* === | Browse Page | === */
 .browse__head {
     display: flex;
     flex-direction: column;
@@ -77,13 +77,13 @@ input {
     padding: 50px 0;
 }
 
-.browse__user {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .browse__link {
     color: #47240F;
+}
+
+#browse__add {
+    padding-top: 30px;
+    font-size: x-large;
 }
 
 .recipes__container {
@@ -100,12 +100,7 @@ input {
     font-size: x-large;
 }
 
-.recipe__container {
-    display: flex;
-    flex-direction: row;
-}
-
-/* Landing Page */
+/* === | Landing Page | === */
 .landing__card {
     /* border: #47240F solid; */
     display: flex;
@@ -144,7 +139,50 @@ input {
     color: #FFaF03;
 }
 
-/* Profile Page */
+/* TODO === | Recipe Show Page | === */
+.recipe__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.recipe__header {
+    margin: 30px 0 0 50px;
+}
+
+.recipe__body {
+    margin: 30px 50px;
+}
+
+#recipe__link {
+    color: #47240F;
+}
+
+#recipe__button {
+    border-radius: 10px;
+    background-color: #47240F;
+    color: #FFaF03;
+}
+
+.recipe__commentsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+/* TODO === | Profile Page | === */
 .profile__link {
     color: #47240F;
 }
+
+/* TODO === | New Recipe Page | === */
+
+/* TODO === | Edit Recipe Page | === */
+
+/* TODO === | Edit Comment Page | === */
+
+/* TODO === | Brownie Page | === */

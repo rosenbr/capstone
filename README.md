@@ -5,8 +5,7 @@ Your one-stop-shop for all things Instant Noodle related.
 __Send your friends some Noods!__
 
 === | **Wireframe** | ===
-<!-- Image linking? -->
-<!-- <img src="name.jpg" /> -->
+
 Landing Page:
 ![Landing Page Wirefreame](../public/README_images/LandingPage.png)
 Home Page:
@@ -26,8 +25,7 @@ At the Landing Page, the User will be prompted to Sign Up, for new Users, or Log
 
 After Loging or Sign Up the User is redirected to to the Home Page, which displays site navigation.
 
-<!-- TODO may need rewording/editing -->
-The User can navigate to any Recipe post on the Home Page, or use the Sidebar to Browse different Recipes or Search for Recipes.
+The User can navigate to any Recipe post on the Browse Page, or to any Recipe they have posted from the User Profile Pgae.
 
 If the User decides to Browse, they are redirected to the Browse Page, which lists the different Recipes available for viewing.
 
@@ -55,12 +53,20 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 
 === | **Technologies Used** | ===
 
--Express
+- Express
 
--MongoDB
+- MongoDB
 
 === | **Unsolved Mysteries** | ===
 
+- Where did D.B. Cooper go?
+
+- 
 <!-- X-Files song intensifies -->
 
 === | **Installation** | ===
+
+=== | **Future Features** | ===
+- Ability for Users to uppload a pic of their recipe
+
+- Search bar
