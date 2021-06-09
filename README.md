@@ -68,17 +68,17 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 
 - run the following code:
    
-    npm init
+-        npm init
    
-    npm i express
+-        npm i express
    
-    npm i ejs
+-        npm i ejs
    
-    npm i mongoose
+-        npm i mongoose
    
-    npm i method-override
+-        npm i method-override
    
-    npm i nodemon
+-        npm i nodemon
 
 === | **Future Features** | ===
 
