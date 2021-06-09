@@ -73,6 +73,6 @@ app.use("/recipes", authRequired, controllers.recipes);
 app.use("/comments", authRequired, controllers.comments);
 
 // === | Listener | ===
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
     console.log("Server Running on Port 3000");
 });
