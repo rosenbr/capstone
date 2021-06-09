@@ -11,7 +11,7 @@
 <body>
     <%- include("../header") %>
     <div class="comment__editContainer">
-        <h1>Comment Edit Page</h1>
+        <h1>Oops... I mean to say...</h1>
         <p class="comment__body"><u>Previous Comment|</u> <%= comment.body %></p>
         <form action="/comments/edit/<%= comment._id %>/<%= recipeId %>?_method=PUT" method="POST">
             <input id="comment__input" type="text" name ="body" placeholder="New Comment" />

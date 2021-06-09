@@ -64,7 +64,16 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 - Where did D.B. Cooper go?
 
 === | **Installation** | ===
-clone, npm i yada ydaya
+- Visit https://git.generalassemb.ly/rosenbr73/capstone and clone the repo.
+
+- run the following code:
+-   npm init
+-   npm i express
+-   npm i ejs
+-   npm i mongoose
+-   npm i method-override
+-   npm i nodemon
+
 === | **Future Features** | ===
 
 - Ability for Users to uppload a pic of their recipe
