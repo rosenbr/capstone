@@ -10,31 +10,35 @@
 </head>
 <body>
     <%- include("../header") %>
-    <h1>Edit Page</h1>
-    <div>
-        <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">Form start
+    <div class="edit__container">
+        <h1>Did you forget something?</h1>
+        <% if(err) { %>
+            <p><%= err %></p>
+            <p>Tips: Title, Directions, Portion(s), and Cooking Method are required. The "Portion(s)" field must be a Number.</p>
+            <% } %>
+        <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
             <p>
-                <input type="text" name="title" placeholder="Title" />
+                <input class="recipe__edit" type="text" name="title" placeholder="Title" />
             </p>
             <p>
-                <input type="text" name="description" placeholder="Directions" />
+                <input class="recipe__edit" type="text" name="description" placeholder="Directions" />
             </p>
             <p>
-                <input type="text" name="portion" placeholder="Portions" />
+                <input class="recipe__edit" type="text" name="portion" placeholder="Portions (number of packets used)" />
             </p>
             <p>
-                <input type="text" name="cookMethod" placeholder="Cooking Method" />
+                <input class="recipe__edit" type="text" name="cookMethod" placeholder="Cooking Method" />
             </p>
             <p>
-                <input type="text" name="spice" placeholder="Spices" />
+                <input class="recipe__edit" type="text" name="spice" placeholder="Spices" />
             </p>
             <p>
-                <input type="text" name="proteins" placeholder="Proteins" />
+                <input class="recipe__edit" type="text" name="proteins" placeholder="Proteins" />
             </p>
             <p>
-                <input type="text" name="veggies" placeholder="Veggies" />
+                <input class="recipe__edit" type="text" name="veggies" placeholder="Veggies" />
             </p>
-            <input type="submit" value="Update your Noods!" />
+            <input class="recipe__edit" id="recipe__button" type="submit" value="Update your Noods!" />
         </form>
     </div>
 </body>

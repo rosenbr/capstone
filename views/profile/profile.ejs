@@ -10,19 +10,19 @@
 </head>
 <body>
     <%- include("../header") %>
-    <div>
+    <div class="profile__container">
         <div class="profile__header">
             <h1><%= user.username %></h1>
-            <a class="profile__link" href="/recipes/new">Add Recipe</a>
+            <a id="profile__link" href="/recipes/new">Add Recipe</a>
         </div>
-        <div class="profile__recipes">
+        <div class="profile__allRecipes">
             <ul>Recipes
                 <% if(!user.recipes) { %>
                 <p>You haven't posted any Noods yet! ;)</p>
                 <% } %>
                 <% if(user.recipes) { %>  
                     <% user.recipes.forEach(recipe => { %>
-                        <li><a class="profile__link" href="/recipes/show/<%= recipe._id %>"><%= recipe.title %></a></li>
+                        <li><a class="profile__recipe" id="profile__link" href="/recipes/show/<%= recipe._id %>"><%= recipe.title %></a></li>
                     <% }) %>
                 <% } %>
             </ul>

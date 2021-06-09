@@ -88,6 +88,8 @@ input {
 
 .recipes__container {
     display: flex;
+    margin: 0 0 0 30px;
+    flex-wrap: wrap;
 }
 
 .recipes__list {
@@ -139,7 +141,7 @@ input {
     color: #FFaF03;
 }
 
-/* TODO === | Recipe Show Page | === */
+/* === | Recipe Show Page | === */
 .recipe__container {
     display: flex;
     flex-direction: row;
@@ -174,15 +176,73 @@ input {
     padding: 30px;
 }
 
-/* TODO === | Profile Page | === */
-.profile__link {
+.recipe__comments {
+    margin: 50px;
+}
+
+.comment {
+    margin: 50px 0;
+}
+
+#comment__input {
+    width: 350px;
+}
+
+/* === | Profile Page | === */
+.profile__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile__header {
+    padding: 50px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: x-large;
+}
+
+.profile__allRecipes {
+    font-size: large;
+}
+
+.profile__recipe {
+    font-size: medium;
+}
+
+#profile__link {
     color: #47240F;
 }
 
 /* TODO === | New Recipe Page | === */
 
-/* TODO === | Edit Recipe Page | === */
+/* === | Edit Recipe Page | === */
+.edit__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-/* TODO === | Edit Comment Page | === */
+.recipe__edit {
+    width: 275px;
+}
+
+
+/* === | Edit Comment Page | === */
+.comment__editContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.comment__body {
+    margin: 50px;
+}
 
 /* TODO === | Brownie Page | === */

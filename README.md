@@ -7,15 +7,15 @@ __Send your friends some Noods!__
 === | **Wireframe** | ===
 
 Landing Page:
-![Landing Page Wirefreame](../public/README_images/LandingPage.png)
+![Landing Page Wirefreame](./public/README_images/LandingPage.png)
 Home Page:
-![Home Page Wirefreame](../public/README_images/HomePage.png)
+![Home Page Wirefreame](./public/README_images/HomePage.png)
 Browse page:
-![Browse Page Wirefreame](../public/README_images/BrowsePage.png)
+![Browse Page Wirefreame](./public/README_images/BrowsePage.png)
 Recipe Page:
-![Recipe Page Wirefreame](../public/README_images/RecipePage.png)
+![Recipe Page Wirefreame](./public/README_images/RecipePage.png)
 Profile Page:
-![Profile Page Wirefreame](/README_images/ProfilePage.png)
+![Profile Page Wirefreame](./public/README_images/ProfilePage.png)
 
 === | **User Stories** | ===
 
@@ -43,9 +43,10 @@ Once at the Profile Page, a User can update their info and profile pic and see a
 
 === | **ERD** | ===
 
-![ERD](../public/README_images/ERD.png)
+![ERD](./public/README_images/ERD.png)
 
 === | **Link** | ===
+<!-- Deployment Link -->
 
 === | **Elevator Pitch** | ===
 
@@ -63,7 +64,7 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 - Where did D.B. Cooper go?
 
 === | **Installation** | ===
-
+clone, npm i yada ydaya
 === | **Future Features** | ===
 
 - Ability for Users to uppload a pic of their recipe

@@ -10,12 +10,12 @@
 </head>
 <body>
     <%- include("../header") %>
-    <h1>Comment Edit Page</h1>
-    <div>
-        <p><%= comment.body %></p>
+    <div class="comment__editContainer">
+        <h1>Comment Edit Page</h1>
+        <p class="comment__body"><u>Previous Comment|</u> <%= comment.body %></p>
         <form action="/comments/edit/<%= comment._id %>/<%= recipeId %>?_method=PUT" method="POST">
-            <input type="text" name ="body" placeholder="New Comment" />
-            <input type="submit" value="Update Comment" />
+            <input id="comment__input" type="text" name ="body" placeholder="New Comment" />
+            <input id="recipe__button" type="submit" value="Update Comment" />
         </form>
     </div>
 </body>

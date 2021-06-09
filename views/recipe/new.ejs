@@ -10,8 +10,12 @@
 </head>
 <body>
     <%- include("../header") %>
-    <h1>Add New Recipe Page</h1>
     <div>
+        <h1>Add New Recipe Page</h1>
+        <% if(err) { %>
+            <p><%= err %></p>
+            <p>Tips: Title, Directions, Portion(s), and Cooking Method are required. The "Portion(s)" field must be a Number.</p>
+            <% } %>
         <form action="/recipes/show" method="POST">How do you like your Noods?
             <p>
                 <input type="text" name="title" placeholder="Title" />
@@ -20,7 +24,7 @@
                 <input type="text" name="description" placeholder="Directions" />
             </p>
             <p>
-                <input type="text" name="portion" placeholder="Portions" />
+                <input type="text" name="portion" placeholder="Portions (number of packets used)" />
             </p>
             <p>
                 <input type="text" name="cookMethod" placeholder="Cooking Method" />

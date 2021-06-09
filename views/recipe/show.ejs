@@ -12,7 +12,8 @@
     <%- include("../header") %>
     <div class="recipe__container">
         <div class="recipe__header">
-            <h1><%= recipes.title %> Recipe</h1>
+            
+            <h1><%= recipes.title %> |</h1>
             <h4>Posted by: <%= user.username %></h4>
             <div class="recipe__buttons">
                 <a id="recipe__link" href="/recipes/<%= recipes._id %>/edit">Edit</a>
@@ -40,12 +41,15 @@
             <h3>Comments</h3>
             <form action="/comments/show/" method="POST">
                 <input type="hidden" name="recipe" value="<%= recipes._id %>" />
-                <input type="text" name="body" placeholder="Let them know how much you like their Noods!" />
+                <input id="comment__input" type="text" name="body" placeholder="Let them know how much you like their Noods!" />
                 <input id="recipe__button" type="submit" value="Tell 'em!">
             </form>
         </div>
         <div class="recipe__comments">
             <ul>
+                <% if(!recipes.comments) { %>
+                    <p>No Comments, yet...</p>
+                    <% } %>
                 <% if(recipes.comments) { %>  
                     <% recipes.comments.forEach(comment => { %>
                         <li class="comment"><u><%= comment.user.username %></u> | <%= comment.body %></br>

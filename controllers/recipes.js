@@ -19,12 +19,24 @@ router.get("/new", function(req, res) {
     noods_db.Recipe.find({}, function(err, foundRecipe) {
         if (err) return res.send(err);
 
-        const context = { recipes: foundRecipe };
+        const context = { recipes: foundRecipe, err: "" };
         res.render("../views/recipe/new", context);
     });
 });
 
 // Show Route present
+router.get("/show", function(req, res) {
+    noods_db.Recipe.find({}, function(err, foundRecipe) {
+        if (err) {
+            const context = { err: err }
+            return res.render("../views/recipe/show", context);
+        };
+
+        const context = { recipes: foundRecipe };
+        res.render("../views/recipe/show", context);
+    });
+});
+
 router.get("/show/:id", function(req, res){
     noods_db.Recipe.findById(req.params.id)
         .populate({
@@ -34,7 +46,10 @@ router.get("/show/:id", function(req, res){
             }
         })
         .exec(function (err, foundRecipe) {
-            if (err) return res.send(err);
+            if (err) {
+                const context = { err: err }
+                return res.render("../views/recipe/error", context);
+            }
 
             const context = { recipes: foundRecipe };
             return res.render("../views/recipe/show", context);
@@ -45,7 +60,11 @@ router.get("/show/:id", function(req, res){
 router.post("/show", function(req, res) {
     req.body.user = req.session.currentUser.id
     noods_db.Recipe.create(req.body, function (err, createdRecipe) {
-        if (err) return res.send(err);
+
+        if (err) { 
+            const context = { err: "Invalid Fields" }
+            return res.render("../views/recipe/new", context);
+        }
 
         noods_db.User.findById(createdRecipe.user).exec(function (err, foundUser) {
             if (err) return res.send(err);
@@ -61,9 +80,12 @@ router.post("/show", function(req, res) {
 // Edit Route present form
 router.get("/:id/edit", function(req, res) {
     noods_db.Recipe.findById(req.params.id, function (err, foundRecipe) {
-        if (err) return res.send(err);
+        if (err) { 
+            const context = { err: "Invalid Fields" }
+            return res.render("../views/recipe/new", context);
+        }
 
-        const context = { recipe: foundRecipe };
+        const context = { recipe: foundRecipe, err: "" };
         res.render("../views/recipe/edit", context);
     });
 });
@@ -77,10 +99,17 @@ router.put("/:id", function(req, res) {
                 ...req.body,
             },
         },
-        { new: true },
         function (err, updatedRecipe) {
-            if (err) return res.send(err);
+            if(err) {
+                noods_db.Recipe.findById(req.params.id, function (err, foundRecipe) {
+                    
+                    const context = { err: "Invalid Fields", recipe: foundRecipe }
+                    return res.render("../views/recipe/edit", context);
+                });
+            } else {
+            // if (err) return res.send(err);
             return res.redirect(`/recipes/show/${updatedRecipe._id}`);
+            }
         }
     );
 });
