@@ -67,12 +67,12 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 - Visit https://git.generalassemb.ly/rosenbr73/capstone and clone the repo.
 
 - run the following code:
--   npm init
--   npm i express
--   npm i ejs
--   npm i mongoose
--   npm i method-override
--   npm i nodemon
+   npm init
+   npm i express
+   npm i ejs
+   npm i mongoose
+   npm i method-override
+   npm i nodemon
 
 === | **Future Features** | ===
 
