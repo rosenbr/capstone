@@ -59,14 +59,13 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 
 === | **Unsolved Mysteries** | ===
 
-- Where did D.B. Cooper go?
-
-- 
 <!-- X-Files song intensifies -->
+- Where did D.B. Cooper go?
 
 === | **Installation** | ===
 
 === | **Future Features** | ===
+
 - Ability for Users to uppload a pic of their recipe
 
 - Search bar
