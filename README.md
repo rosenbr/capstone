@@ -5,20 +5,17 @@ Your one-stop-shop for all things Instant Noodle related.
 __Send your friends some Noods!__
 
 === | **Wireframe** | ===
-<!-- Image linking? -->
-<!-- <img src="name.jpg" /> -->
+
 Landing Page:
-![Landing Page Wirefreame](/README_images/LandingPage.png)
+![Landing Page Wirefreame](./public/README_images/LandingPage.png)
 Home Page:
-![Home Page Wirefreame](/README_images/HomePage.png)
+![Home Page Wirefreame](./public/README_images/HomePage.png)
 Browse page:
-![Browse Page Wirefreame](/README_images/BrowsePage.png)
-Catagory Page:
-![Catagory Page Wirefreame](/README_images/CatagoryPage.png)
+![Browse Page Wirefreame](./public/README_images/BrowsePage.png)
 Recipe Page:
-![Recipe Page Wirefreame](/README_images/RecipePage.png)
+![Recipe Page Wirefreame](./public/README_images/RecipePage.png)
 Profile Page:
-![Profile Page Wirefreame](/README_images/ProfilePage.png)
+![Profile Page Wirefreame](./public/README_images/ProfilePage.png)
 
 === | **User Stories** | ===
 
@@ -26,15 +23,13 @@ The User starts off by navigating to the website where they will be directed to 
 
 At the Landing Page, the User will be prompted to Sign Up, for new Users, or Login, for existing Users.
 
-After Loging or Sign Up the User is redirected to to the Home Page, which displays a Feed of varying Recipe Posts.
+After Loging or Sign Up the User is redirected to to the Home Page, which displays site navigation.
 
-The User can navigate to any Recipost on the Home Page, or use the Sidebar to Browse different Catagories or Search for Recipes.
+The User can navigate to any Recipe post on the Browse Page, or to any Recipe they have posted from the User Profile Pgae.
 
-If the User decides to Browse, they are redirected to the Browse Page, which lists the different Catagories.
+If the User decides to Browse, they are redirected to the Browse Page, which lists the different Recipes available for viewing.
 
-Upon selecting a Catagory of interest, the User is redirected to the Catagory Page which contains a list of Recipes that fit the selected Catagory.
-
-The User then has the option to create a new Recipe for that Catagory, or the User can select a Recipe to view.
+The User then has the option to create a new Recipe, or select a Recipe to view.
 
 The Recipe Page displays how one User decided to make their Instant Noodles with all the directions and ingredients displayed for other Users to read.
 
@@ -48,9 +43,10 @@ Once at the Profile Page, a User can update their info and profile pic and see a
 
 === | **ERD** | ===
 
-![ERD](/images/README_images/ERD.png)
+![ERD](./public/README_images/ERD.png)
 
 === | **Link** | ===
+<!-- Deployment Link -->
 
 === | **Elevator Pitch** | ===
 
@@ -58,12 +54,34 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 
 === | **Technologies Used** | ===
 
--Express
--MongoDB
+- Express
 
+- MongoDB
 
 === | **Unsolved Mysteries** | ===
 
 <!-- X-Files song intensifies -->
+- Where did D.B. Cooper go?
 
 === | **Installation** | ===
+- Visit https://git.generalassemb.ly/rosenbr73/capstone and clone the repo.
+
+- run the following code:
+   
+-        npm init
+   
+-        npm i express
+   
+-        npm i ejs
+   
+-        npm i mongoose
+   
+-        npm i method-override
+   
+-        npm i nodemon
+
+=== | **Future Features** | ===
+
+- Ability for Users to upload a pic of their recipe
+
+- Search bar

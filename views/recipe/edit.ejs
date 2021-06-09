@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type ="text/css" href="/styles/main.css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Noods</title>
+</head>
+<body>
+    <%- include("../header") %>
+    <div class="edit__container">
+        <h1>Did you forget something?</h1>
+        <% if(err) { %>
+            <p><%= err %></p>
+            <p>Tips: Title, Directions, Portion(s), and Cooking Method are required. The "Portion(s)" field must be a Number.</p>
+            <% } %>
+        <form action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+            <p>
+                <input class="recipe__edit" type="text" name="title" placeholder="Title" />
+            </p>
+            <p>
+                <input class="recipe__edit" type="text" name="description" placeholder="Directions" />
+            </p>
+            <p>
+                <input class="recipe__edit" type="text" name="portion" placeholder="Portions (number of packets used)" />
+            </p>
+            <p>
+                <input class="recipe__edit" type="text" name="cookMethod" placeholder="Cooking Method (Stove/Microwave)" />
+            </p>
+            <p>
+                <input class="recipe__edit" type="text" name="spice" placeholder="Spices" />
+            </p>
+            <p>
+                <input class="recipe__edit" type="text" name="proteins" placeholder="Proteins" />
+            </p>
+            <p>
+                <input class="recipe__edit" type="text" name="veggies" placeholder="Veggies" />
+            </p>
+            <input class="recipe__edit" id="recipe__button" type="submit" value="Update your Noods!" />
+        </form>
+    </div>
+</body>
+</html>
