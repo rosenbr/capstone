@@ -1,3 +1,4 @@
+/* === | All | === */
 * {
     background-color: #FFF9EC;
 }
@@ -21,6 +22,10 @@ a {
 input {
     cursor: pointer;
 }
+
+/* @font-face {
+    font-family: ;
+} */
 
 /* === | Navbar | === */
 .navbar {
@@ -77,7 +82,7 @@ input {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
-    height: 400px;
+    height: 500px;
     position: relative;
     z-index: 100;
 }
@@ -120,11 +125,11 @@ input {
 .browse__image {
     background-image: url("https://cdn.discordapp.com/attachments/371420063061901313/546265559889739817/ric.png");
     background-attachment: fixed;
-    background-position: bottom;
+    background-position: 0% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
-    height: 400px;
+    height: 500px;
     position: relative;
     z-index: 100;
 }
@@ -282,3 +287,10 @@ input {
 }
 
 /* TODO === | Brownie Page | === */
+.brownie__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}

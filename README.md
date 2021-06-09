@@ -82,6 +82,6 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 
 === | **Future Features** | ===
 
-- Ability for Users to uppload a pic of their recipe
+- Ability for Users to upload a pic of their recipe
 
 - Search bar
