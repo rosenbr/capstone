@@ -10,36 +10,41 @@
 </head>
 <body>
     <%- include("../header") %>
-    <div>
-        <h1>Add New Recipe Page</h1>
-        <% if(err) { %>
-            <p><%= err %></p>
-            <p>Tips: Title, Directions, Portion(s), and Cooking Method are required. The "Portion(s)" field must be a Number.</p>
-            <% } %>
-        <form action="/recipes/show" method="POST">How do you like your Noods?
-            <p>
-                <input type="text" name="title" placeholder="Title" />
-            </p>
-            <p>
-                <input type="text" name="description" placeholder="Directions" />
-            </p>
-            <p>
-                <input type="text" name="portion" placeholder="Portions (number of packets used)" />
-            </p>
-            <p>
-                <input type="text" name="cookMethod" placeholder="Cooking Method" />
-            </p>
-            <p>
-                <input type="text" name="spice" placeholder="Spices" />
-            </p>
-            <p>
-                <input type="text" name="proteins" placeholder="Proteins" />
-            </p>
-            <p>
-                <input type="text" name="veggies" placeholder="Veggies" />
-            </p>
-            <input type="submit" value="Add your Noods!" />
-        </form>
+    <div class="new__container">
+        <div class="new__header">
+            <h1>Add New Recipe Page</h1>
+            <% if(err) { %>
+                <p><%= err %></p>
+                <p>Tips: Title, Directions, Portion(s), and Cooking Method are required. The "Portion(s)" field must be a Number.</p>
+                <% } %>
+        </div>
+        <div class="input__container">
+            <h5>How do you like your Noods?</h5>
+            <form action="/recipes/show" method="POST">
+                <p>
+                    <input class="new__input" type="text" name="title" placeholder="Title" />
+                </p>
+                <p>
+                    <input class="new__input" type="text" name="description" placeholder="Directions" />
+                </p>
+                <p>
+                    <input class="new__input" type="text" name="portion" placeholder="Portions (number of packets used)" />
+                </p>
+                <p>
+                    <input class="new__input" type="text" name="cookMethod" placeholder="Cooking Method" />
+                </p>
+                <p>
+                    <input class="new__input" type="text" name="spice" placeholder="Spices" />
+                </p>
+                <p>
+                    <input class="new__input" type="text" name="proteins" placeholder="Proteins" />
+                </p>
+                <p>
+                    <input class="new__input" type="text" name="veggies" placeholder="Veggies" />
+                </p>
+                <input class="new__input" id="recipe__button" type="submit" value="Add your Noods!" />
+            </form>
+        </div>
     </div>
 </body>
 </html>
