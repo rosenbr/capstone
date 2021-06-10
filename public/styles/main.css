@@ -228,6 +228,7 @@ input {
 
 #comment__input {
     width: 350px;
+    border-radius: 7px;
 }
 
 /* === | Profile Page | === */
@@ -269,6 +270,7 @@ input {
 
 .new__input {
     width: 275px;
+    border-radius: 7px;
 }
 
 /* === | Edit Recipe Page | === */
@@ -281,6 +283,7 @@ input {
 
 .recipe__edit {
     width: 275px;
+    border-radius: 7px;
 }
 
 /* === | Edit Comment Page | === */
