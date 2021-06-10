@@ -66,6 +66,8 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 <!-- X-Files song intensifies -->
 - Where did D.B. Cooper go?
 
+- Login/Register Error Handling
+
 === | **Installation** | ===
 - Visit https://git.generalassemb.ly/rosenbr73/capstone and clone the repo.
 
