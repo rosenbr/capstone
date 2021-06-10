@@ -59,6 +59,8 @@ While taking the Software Engineering Immersive Cohort through General Asssembly
 
 - MongoDB
 
+- Node
+
 === | **Unsolved Mysteries** | ===
 
 <!-- X-Files song intensifies -->
