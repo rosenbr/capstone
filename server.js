@@ -73,11 +73,11 @@ app.use("/recipes", authRequired, controllers.recipes);
 app.use("/comments", authRequired, controllers.comments);
 
 // === | Listener | ===
-// app.listen(process.env.PORT, function(){
-//     console.log("Server Running on Port 3000");
-// });
+app.listen(process.env.PORT, function(){
+    console.log("Server Running on Port 3000");
+});
 
 // === | Local Testing Port | ===
-app.listen(3000, function() {
-    console.log("Running on Port 3000");
-});
+// app.listen(3000, function() {
+//     console.log("Running on Port 3000");
+// });
