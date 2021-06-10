@@ -37,6 +37,8 @@ router.get("/show", function(req, res) {
     });
 });
 
+// One of these dislays the wrong username for who posted the recipe
+
 router.get("/show/:id", function(req, res){
     noods_db.Recipe.findById(req.params.id)
         .populate({
