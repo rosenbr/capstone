@@ -39,7 +39,7 @@ The original poster of the Recipe has the option to edit or delete the posted Re
 
 The User has the option to visit their Profile Page at any time from the Navbar at the top.
 
-Once at the Profile Page, a User can update their info and profile pic and see all of their Recipe Posts and Comments, with links to the Recipes and Comments.
+Once at the Profile Page, a User can see all of their Recipe Posts, with links to the Recipes.
 
 === | **ERD** | ===
 
